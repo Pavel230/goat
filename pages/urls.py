@@ -7,4 +7,7 @@ urlpatterns = [
     path("delivery/", views.delivery, name="delivery"),
     path("contacts/", views.contacts, name="contacts"),
     path("catalog/", views.catalog, name="catalog"),
+
+    path("currency/<str:code>/", views.set_currency, name="set_currency"),
+
 ]

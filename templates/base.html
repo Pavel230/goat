@@ -21,6 +21,54 @@
           >
           <a class="hover:underline" href="{% url 'contacts' %}">Контакты</a>
           <a class="hover:underline" href="{% url 'about' %}">О магазине</a>
+
+          <div class="flex items-center gap-4 text-sm">
+            <!-- Currency -->
+            <div class="flex items-center gap-2">
+              <a
+                class="hover:underline"
+                href="{% url 'set_currency' 'KZT' %}?next={{ request.get_full_path|urlencode }}"
+                >KZT</a
+              >
+              <span class="text-slate-300">|</span>
+              <a
+                class="hover:underline"
+                href="{% url 'set_currency' 'USD' %}?next={{ request.get_full_path|urlencode }}"
+                >USD</a
+              >
+            </div>
+
+            <!-- Language -->
+            <form
+              action="{% url 'set_language' %}"
+              method="post"
+              class="flex items-center gap-2"
+            >
+              {% csrf_token %}
+              <input
+                type="hidden"
+                name="next"
+                value="{{ request.get_full_path }}"
+              />
+              <button
+                class="hover:underline"
+                name="language"
+                value="ru"
+                type="submit"
+              >
+                RU
+              </button>
+              <span class="text-slate-300">|</span>
+              <button
+                class="hover:underline"
+                name="language"
+                value="en"
+                type="submit"
+              >
+                EN
+              </button>
+            </form>
+          </div>
         </nav>
       </div>
     </header>

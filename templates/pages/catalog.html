@@ -1,8 +1,22 @@
 {% extends "base.html" %}
+{% load money %}
 {% block title %}Каталог — GOAT{% endblock %}
 {% block content %}
-  <h1 class="text-3xl font-bold">Каталог</h1>
+  <h1 class="text-3xl font-bold">{% if request.LANGUAGE_CODE|slice:":2" == "en" %}Catalog{% else %}Каталог{% endif %}</h1>
+
   <p class="mt-3 text-slate-600">
-    Заглушка. Здесь будет список товаров, поиск, фильтры и сортировка.
+    {% if request.LANGUAGE_CODE|slice:":2" == "en" %}
+      Placeholder. Product list, search, filters and sorting will be here.
+    {% else %}
+      Заглушка. Здесь будет список товаров, поиск, фильтры и сортировка.
+    {% endif %}
   </p>
+
+  <div class="mt-6 rounded-xl border p-6">
+    <div class="text-sm text-slate-500">
+      {% if request.LANGUAGE_CODE|slice:":2" == "en" %}Example price{% else %}Пример цены{% endif %}
+    </div>
+    <div class="mt-2 text-2xl font-semibold">{% money 30000 %}</div>
+    <div class="mt-1 text-sm text-slate-500">30 000 KZT</div>
+  </div>
 {% endblock %}
