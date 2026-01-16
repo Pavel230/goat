@@ -6,6 +6,10 @@ from django.conf.urls.static import static
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("i18n/", include("django.conf.urls.i18n")),
+
+    # Важно: catalog до pages, чтобы /catalog/ не перехватывался pages-роутами
+    path("catalog/", include(("catalog.urls", "catalog"), namespace="catalog")),
+
     path("", include("pages.urls")),
 ]
 

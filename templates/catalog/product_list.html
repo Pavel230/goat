@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+{% load money %}
+
+{% block title %}Каталог — GOAT{% endblock %}
+
+{% block content %}
+  <div class="flex items-start justify-between gap-6">
+    <div>
+      <h1 class="text-3xl font-bold">
+        {% if request.LANGUAGE_CODE|slice:":2" == "en" %}Catalog{% else %}Каталог{% endif %}
+      </h1>
+      <p class="mt-2 text-slate-600">
+        {% if request.LANGUAGE_CODE|slice:":2" == "en" %}
+          Search, filters and sorting.
+        {% else %}
+          Поиск, фильтры и сортировка.
+        {% endif %}
+      </p>
+    </div>
+
+    <form method="get" class="w-full max-w-xl">
+      <div class="flex gap-2">
+        <input
+          name="q"
+          value="{{ q }}"
+          placeholder="{% if request.LANGUAGE_CODE|slice:':2' == 'en' %}Search...{% else %}Поиск...{% endif %}"
+          class="w-full rounded-lg border px-3 py-2 text-sm"
+        />
+        <button class="rounded-lg border px-4 py-2 text-sm hover:bg-slate-50">
+          {% if request.LANGUAGE_CODE|slice:":2" == "en" %}Find{% else %}Найти{% endif %}
+        </button>
+      </div>
+
+      <div class="mt-3 flex flex-wrap gap-2">
+        <select name="category" class="rounded-lg border px-3 py-2 text-sm">
+          <option value="">
+            {% if request.LANGUAGE_CODE|slice:":2" == "en" %}All categories{% else %}Все категории{% endif %}
+          </option>
+          {% for c in categories %}
+            <option value="{{ c.slug }}" {% if c.slug == category_slug %}selected{% endif %}>{{ c.name }}</option>
+          {% endfor %}
+        </select>
+
+        <select name="sort" class="rounded-lg border px-3 py-2 text-sm">
+          <option value="new" {% if sort == "new" %}selected{% endif %}>
+            {% if request.LANGUAGE_CODE|slice:":2" == "en" %}New{% else %}Сначала новые{% endif %}
+          </option>
+          <option value="price_asc" {% if sort == "price_asc" %}selected{% endif %}>
+            {% if request.LANGUAGE_CODE|slice:":2" == "en" %}Price ↑{% else %}Цена ↑{% endif %}
+          </option>
+          <option value="price_desc" {% if sort == "price_desc" %}selected{% endif %}>
+            {% if request.LANGUAGE_CODE|slice:":2" == "en" %}Price ↓{% else %}Цена ↓{% endif %}
+          </option>
+          <option value="popular" {% if sort == "popular" %}selected{% endif %}>
+            {% if request.LANGUAGE_CODE|slice:":2" == "en" %}Popular{% else %}Популярные{% endif %}
+          </option>
+        </select>
+
+        <button class="rounded-lg border px-4 py-2 text-sm hover:bg-slate-50">
+          {% if request.LANGUAGE_CODE|slice:":2" == "en" %}Apply{% else %}Применить{% endif %}
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+    {% for p in page_obj %}
+      <a href="{% url 'catalog:detail' p.slug %}" class="rounded-xl border p-4 hover:shadow-sm transition">
+        <div class="aspect-square w-full rounded-lg bg-slate-50 flex items-center justify-center overflow-hidden">
+          {% if p.image %}
+            <img src="{{ p.image.url }}" alt="{{ p.name }}" class="h-full w-full object-cover" />
+          {% elif p.image_url %}
+            <img src="{{ p.image_url }}" alt="{{ p.name }}" class="h-full w-full object-cover" />
+          {% else %}
+            <span class="text-slate-400 text-sm">No image</span>
+          {% endif %}
+        </div>
+
+        <div class="mt-3 text-sm text-slate-500">{{ p.category.name }}</div>
+        <div class="mt-1 font-semibold">{{ p.name }}</div>
+        <div class="mt-2 text-lg font-bold">{% money p.price_kzt %}</div>
+        <div class="mt-1 text-xs text-slate-500">
+          {% if request.LANGUAGE_CODE|slice:":2" == "en" %}Views:{% else %}Просмотры:{% endif %} {{ p.views_total }}
+        </div>
+      </a>
+    {% empty %}
+      <div class="rounded-xl border p-6 text-slate-600">
+        {% if request.LANGUAGE_CODE|slice:":2" == "en" %}Nothing found.{% else %}Ничего не найдено.{% endif %}
+      </div>
+    {% endfor %}
+  </div>
+
+  {% if page_obj.paginator.num_pages > 1 %}
+    <div class="mt-8 flex items-center gap-2">
+      {% if page_obj.has_previous %}
+        <a class="rounded-lg border px-3 py-2 text-sm hover:bg-slate-50"
+           href="?q={{ q|urlencode }}&category={{ category_slug|urlencode }}&sort={{ sort|urlencode }}&page={{ page_obj.previous_page_number }}">
+          ←
+        </a>
+      {% endif %}
+
+      <div class="text-sm text-slate-600">
+        {% if request.LANGUAGE_CODE|slice:":2" == "en" %}Page{% else %}Страница{% endif %}
+        {{ page_obj.number }} / {{ page_obj.paginator.num_pages }}
+      </div>
+
+      {% if page_obj.has_next %}
+        <a class="rounded-lg border px-3 py-2 text-sm hover:bg-slate-50"
+           href="?q={{ q|urlencode }}&category={{ category_slug|urlencode }}&sort={{ sort|urlencode }}&page={{ page_obj.next_page_number }}">
+          →
+        </a>
+      {% endif %}
+    </div>
+  {% endif %}
+{% endblock %}
