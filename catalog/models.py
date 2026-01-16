@@ -1,59 +1,61 @@
 from django.db import models
-from django.utils.text import slugify
 
 
 class Category(models.Model):
-    name = models.CharField(max_length=120, unique=True)
-    slug = models.SlugField(max_length=140, unique=True, blank=True)
-    is_active = models.BooleanField(default=True)
+    name = models.CharField("Название", max_length=120, unique=True)
+    slug = models.SlugField("Слаг (slug, латиницей)", max_length=140, unique=True)
+    is_active = models.BooleanField("Активна", default=True)
 
     class Meta:
         verbose_name = "Категория"
         verbose_name_plural = "Категории"
         ordering = ["name"]
 
-    def save(self, *args, **kwargs):
-        if not self.slug:
-            self.slug = slugify(self.name)
-        super().save(*args, **kwargs)
-
     def __str__(self):
         return self.name
 
 
 class Product(models.Model):
-    category = models.ForeignKey(Category, on_delete=models.PROTECT, related_name="products")
-    name = models.CharField(max_length=200)
-    slug = models.SlugField(max_length=220, unique=True, blank=True)
+    category = models.ForeignKey(
+        Category,
+        on_delete=models.PROTECT,
+        related_name="products",
+        verbose_name="Категория",
+    )
 
-    price_kzt = models.DecimalField(max_digits=12, decimal_places=0)  # храним базово в KZT
-    description = models.TextField(blank=True)
-    image_url = models.URLField(blank=True)
+    name = models.CharField("Название", max_length=200)
+    slug = models.SlugField("Слаг (slug, латиницей)", max_length=220, unique=True)
 
-    is_active = models.BooleanField(default=True)
-    views_total = models.PositiveIntegerField(default=0)
+    price_kzt = models.DecimalField("Цена (KZT)", max_digits=12, decimal_places=0)
+    description = models.TextField("Описание", blank=True)
 
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
+    image = models.ImageField("Изображение (файл)", upload_to="products/", blank=True, null=True)
+    image_url = models.URLField("Ссылка на изображение (URL, опционально)", blank=True)
+
+    is_active = models.BooleanField("Активен", default=True)
+    views_total = models.PositiveIntegerField("Просмотров всего", default=0)
+
+    created_at = models.DateTimeField("Создан", auto_now_add=True)
+    updated_at = models.DateTimeField("Обновлён", auto_now=True)
 
     class Meta:
         verbose_name = "Товар"
         verbose_name_plural = "Товары"
         ordering = ["-created_at"]
 
-    def save(self, *args, **kwargs):
-        if not self.slug:
-            self.slug = slugify(self.name)
-        super().save(*args, **kwargs)
-
     def __str__(self):
         return self.name
 
 
 class ProductView(models.Model):
-    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name="views")
-    viewed_at = models.DateTimeField(auto_now_add=True)
-    session_key = models.CharField(max_length=40, blank=True)
+    product = models.ForeignKey(
+        Product,
+        on_delete=models.CASCADE,
+        related_name="views",
+        verbose_name="Товар",
+    )
+    viewed_at = models.DateTimeField("Дата просмотра", auto_now_add=True)
+    session_key = models.CharField("Ключ сессии", max_length=40, blank=True)
 
     class Meta:
         verbose_name = "Просмотр товара"
