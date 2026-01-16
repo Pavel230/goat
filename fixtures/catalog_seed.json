@@ -1,0 +1,397 @@
+[
+{
+  "model": "catalog.category",
+  "pk": 1,
+  "fields": {
+    "name": "Бутсы",
+    "slug": "boots",
+    "is_active": true
+  }
+},
+{
+  "model": "catalog.category",
+  "pk": 2,
+  "fields": {
+    "name": "Футзалки",
+    "slug": "futsal",
+    "is_active": true
+  }
+},
+{
+  "model": "catalog.category",
+  "pk": 3,
+  "fields": {
+    "name": "Мячи",
+    "slug": "balls",
+    "is_active": true
+  }
+},
+{
+  "model": "catalog.category",
+  "pk": 4,
+  "fields": {
+    "name": "Форма",
+    "slug": "kits",
+    "is_active": true
+  }
+},
+{
+  "model": "catalog.category",
+  "pk": 5,
+  "fields": {
+    "name": "Вратарские перчатки",
+    "slug": "gk-gloves",
+    "is_active": true
+  }
+},
+{
+  "model": "catalog.category",
+  "pk": 6,
+  "fields": {
+    "name": "Тренировочная одежда",
+    "slug": "training",
+    "is_active": true
+  }
+},
+{
+  "model": "catalog.category",
+  "pk": 7,
+  "fields": {
+    "name": "Аксессуары",
+    "slug": "accessories",
+    "is_active": true
+  }
+},
+{
+  "model": "catalog.category",
+  "pk": 8,
+  "fields": {
+    "name": "Сумки и рюкзаки",
+    "slug": "bags",
+    "is_active": true
+  }
+},
+{
+  "model": "catalog.product",
+  "pk": 1,
+  "fields": {
+    "category": 1,
+    "name": "GOAT SpeedPro FG",
+    "slug": "goat-speedpro-fg",
+    "price_kzt": "59990",
+    "description": "Лёгкие бутсы для натурального газона (FG). Плотная фиксация, быстрый старт, хороший контроль мяча.",
+    "image": "products/GOAT_SpeedPro_FG.png",
+    "image_url": "",
+    "is_active": true,
+    "views_total": 0,
+    "created_at": "2026-01-16T04:01:39.244Z",
+    "updated_at": "2026-01-16T04:17:00.890Z"
+  }
+},
+{
+  "model": "catalog.product",
+  "pk": 2,
+  "fields": {
+    "category": 1,
+    "name": "GOAT Control TF",
+    "slug": "goat-control-tf",
+    "price_kzt": "49990",
+    "description": "Сороконожки (TF) для искусственного покрытия. Стабильность, надёжное сцепление, комфортная посадка.",
+    "image": "products/GOAT_Control_TF.png",
+    "image_url": "",
+    "is_active": true,
+    "views_total": 0,
+    "created_at": "2026-01-16T04:02:12.846Z",
+    "updated_at": "2026-01-16T04:17:49.163Z"
+  }
+},
+{
+  "model": "catalog.product",
+  "pk": 3,
+  "fields": {
+    "category": 1,
+    "name": "GOAT PowerStrike FG",
+    "slug": "goat-powerstrike-fg",
+    "price_kzt": "69990",
+    "description": "Модель для мощных ударов и стабильности. Уверенная посадка и поддержка стопы на FG.",
+    "image": "products/GOAT_PowerStrike_FG.png",
+    "image_url": "",
+    "is_active": true,
+    "views_total": 0,
+    "created_at": "2026-01-16T04:02:55.263Z",
+    "updated_at": "2026-01-16T04:19:50.456Z"
+  }
+},
+{
+  "model": "catalog.product",
+  "pk": 4,
+  "fields": {
+    "category": 2,
+    "name": "GOAT Sala IC",
+    "slug": "goat-sala-ic",
+    "price_kzt": "45990",
+    "description": "Футзалки для зала (IC). Мягкий контакт с мячом, удобная колодка и цепкая подошва.",
+    "image": "products/GOAT_Sala_IC.png",
+    "image_url": "",
+    "is_active": true,
+    "views_total": 0,
+    "created_at": "2026-01-16T04:03:33.752Z",
+    "updated_at": "2026-01-16T04:25:16.908Z"
+  }
+},
+{
+  "model": "catalog.product",
+  "pk": 5,
+  "fields": {
+    "category": 2,
+    "name": "GOAT StreetGato IC",
+    "slug": "goat-streetgato-ic",
+    "price_kzt": "47990",
+    "description": "Манёвренная модель для резких смен направления. Комфорт и контроль на паркете.",
+    "image": "products/GOAT_StreetGato_IC.png",
+    "image_url": "",
+    "is_active": true,
+    "views_total": 0,
+    "created_at": "2026-01-16T04:04:15.624Z",
+    "updated_at": "2026-01-16T04:26:41.668Z"
+  }
+},
+{
+  "model": "catalog.product",
+  "pk": 6,
+  "fields": {
+    "category": 3,
+    "name": "GOAT Match Ball Pro",
+    "slug": "goat-match-ball-pro",
+    "price_kzt": "24990",
+    "description": "Мяч для матчей и интенсивных тренировок. Стабильная траектория и уверенное касание.",
+    "image": "products/GOAT_Match_Ball_Pro.png",
+    "image_url": "",
+    "is_active": true,
+    "views_total": 0,
+    "created_at": "2026-01-16T04:04:55.177Z",
+    "updated_at": "2026-01-16T04:29:45.966Z"
+  }
+},
+{
+  "model": "catalog.product",
+  "pk": 7,
+  "fields": {
+    "category": 3,
+    "name": "GOAT Training Ball",
+    "slug": "goat-training-ball",
+    "price_kzt": "9990",
+    "description": "Тренировочный мяч на каждый день. Износостойкое покрытие и хорошая форма.",
+    "image": "products/GOAT_Training_Ball.png",
+    "image_url": "",
+    "is_active": true,
+    "views_total": 0,
+    "created_at": "2026-01-16T04:05:31.047Z",
+    "updated_at": "2026-01-16T04:31:07.897Z"
+  }
+},
+{
+  "model": "catalog.product",
+  "pk": 8,
+  "fields": {
+    "category": 3,
+    "name": "GOAT Futsal Ball",
+    "slug": "goat-futsal-ball",
+    "price_kzt": "12990",
+    "description": "Мяч для футзала с предсказуемым отскоком и удобным контролем.",
+    "image": "products/GOAT_Futsal_Ball.png",
+    "image_url": "",
+    "is_active": true,
+    "views_total": 0,
+    "created_at": "2026-01-16T04:06:21.311Z",
+    "updated_at": "2026-01-16T04:33:06.608Z"
+  }
+},
+{
+  "model": "catalog.product",
+  "pk": 9,
+  "fields": {
+    "category": 4,
+    "name": "GOAT Pro Kit Home 24/25",
+    "slug": "goat-pro-kit-home-2425",
+    "price_kzt": "34990",
+    "description": "Домашний комплект формы. Дышащая ткань, удобный крой для игры и тренировок.",
+    "image": "products/GOAT_Pro_Kit_Home_2425.png",
+    "image_url": "",
+    "is_active": true,
+    "views_total": 0,
+    "created_at": "2026-01-16T04:06:55.507Z",
+    "updated_at": "2026-01-16T04:39:28.015Z"
+  }
+},
+{
+  "model": "catalog.product",
+  "pk": 10,
+  "fields": {
+    "category": 4,
+    "name": "GOAT Pro Kit Away 24/25",
+    "slug": "goat-pro-kit-away-2425",
+    "price_kzt": "34990",
+    "description": "Гостевой комплект формы. Лёгкий материал, комфорт в движении.",
+    "image": "products/GOAT_Pro_Kit_Away_2425.png",
+    "image_url": "",
+    "is_active": true,
+    "views_total": 0,
+    "created_at": "2026-01-16T04:07:31.929Z",
+    "updated_at": "2026-01-16T04:40:44.086Z"
+  }
+},
+{
+  "model": "catalog.product",
+  "pk": 11,
+  "fields": {
+    "category": 4,
+    "name": "GOAT GK Jersey Pro",
+    "slug": "goat-gk-jersey-pro",
+    "price_kzt": "29990",
+    "description": "Форма вратаря. Свободная посадка, комфортная ткань, подходит для тренировок и игр.",
+    "image": "products/GOAT_GK_Jersey_Pro.png",
+    "image_url": "",
+    "is_active": true,
+    "views_total": 0,
+    "created_at": "2026-01-16T04:08:03.620Z",
+    "updated_at": "2026-01-16T04:41:20.431Z"
+  }
+},
+{
+  "model": "catalog.product",
+  "pk": 12,
+  "fields": {
+    "category": 5,
+    "name": "GOAT Keeper Grip X",
+    "slug": "goat-keeper-grip-x",
+    "price_kzt": "28990",
+    "description": "Цепкий латекс и фиксация запястья. Комфорт при ловле и выбивании.",
+    "image": "products/GOAT_Keeper_Grip_X.png",
+    "image_url": "",
+    "is_active": true,
+    "views_total": 0,
+    "created_at": "2026-01-16T04:08:25.546Z",
+    "updated_at": "2026-01-16T04:44:51.787Z"
+  }
+},
+{
+  "model": "catalog.product",
+  "pk": 13,
+  "fields": {
+    "category": 5,
+    "name": "GOAT Keeper Grip Pro",
+    "slug": "goat-keeper-grip-pro",
+    "price_kzt": "34990",
+    "description": "Усиленный хват и поддержка. Подходит для интенсивной игры и тренировок.",
+    "image": "products/GOAT_Keeper_Grip_Pro.png",
+    "image_url": "",
+    "is_active": true,
+    "views_total": 0,
+    "created_at": "2026-01-16T04:08:52.953Z",
+    "updated_at": "2026-01-16T04:49:53.291Z"
+  }
+},
+{
+  "model": "catalog.product",
+  "pk": 14,
+  "fields": {
+    "category": 6,
+    "name": "GOAT Warm-Up Jacket",
+    "slug": "goat-warmup-jacket",
+    "price_kzt": "29990",
+    "description": "Разминочная куртка для тренировки на улице. Удобная посадка и защита от ветра.",
+    "image": "products/GOAT_Warm-Up_Jacket.png",
+    "image_url": "",
+    "is_active": true,
+    "views_total": 0,
+    "created_at": "2026-01-16T04:09:27.220Z",
+    "updated_at": "2026-01-16T04:52:47.550Z"
+  }
+},
+{
+  "model": "catalog.product",
+  "pk": 15,
+  "fields": {
+    "category": 6,
+    "name": "GOAT Training Shorts",
+    "slug": "goat-training-shorts",
+    "price_kzt": "12990",
+    "description": "Лёгкие шорты, быстро сохнут, не сковывают движения.",
+    "image": "products/GOAT_Training_Shorts.png",
+    "image_url": "",
+    "is_active": true,
+    "views_total": 0,
+    "created_at": "2026-01-16T04:10:08.896Z",
+    "updated_at": "2026-01-16T04:54:28.692Z"
+  }
+},
+{
+  "model": "catalog.product",
+  "pk": 16,
+  "fields": {
+    "category": 7,
+    "name": "GOAT Shin Guards Carbon",
+    "slug": "goat-shin-guards-carbon",
+    "price_kzt": "14990",
+    "description": "Щитки для защиты голени. Лёгкие, удобные, с надёжной фиксацией.",
+    "image": "products/GOAT_Shin_Guards_Carbon.png",
+    "image_url": "",
+    "is_active": true,
+    "views_total": 0,
+    "created_at": "2026-01-16T04:10:39.786Z",
+    "updated_at": "2026-01-16T04:59:48.877Z"
+  }
+},
+{
+  "model": "catalog.product",
+  "pk": 17,
+  "fields": {
+    "category": 7,
+    "name": "GOAT Football Socks Pro",
+    "slug": "goat-football-socks-pro",
+    "price_kzt": "5990",
+    "description": "Футбольные гетры. Плотная посадка и комфорт в игре.",
+    "image": "products/GOAT_Football_Socks_Pro.png",
+    "image_url": "",
+    "is_active": true,
+    "views_total": 0,
+    "created_at": "2026-01-16T04:11:15.110Z",
+    "updated_at": "2026-01-16T05:01:03.080Z"
+  }
+},
+{
+  "model": "catalog.product",
+  "pk": 18,
+  "fields": {
+    "category": 8,
+    "name": "GOAT Team Backpack",
+    "slug": "goat-team-backpack",
+    "price_kzt": "19990",
+    "description": "Рюкзак для тренировок. Отделение под обувь и удобные карманы.",
+    "image": "products/GOAT_Team_Backpack.png",
+    "image_url": "",
+    "is_active": true,
+    "views_total": 0,
+    "created_at": "2026-01-16T04:12:07.839Z",
+    "updated_at": "2026-01-16T05:04:05.381Z"
+  }
+},
+{
+  "model": "catalog.product",
+  "pk": 19,
+  "fields": {
+    "category": 8,
+    "name": "GOAT Boot Bag",
+    "slug": "goat-boot-bag",
+    "price_kzt": "8990",
+    "description": "Сумка для бутс. Компактно, удобно, защищает вещи от грязи.",
+    "image": "products/GOAT_Boot_Bag.png",
+    "image_url": "",
+    "is_active": true,
+    "views_total": 0,
+    "created_at": "2026-01-16T04:12:31.009Z",
+    "updated_at": "2026-01-16T05:06:07.375Z"
+  }
+}
+]
